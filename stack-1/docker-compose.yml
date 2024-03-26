@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  api:
+    image: alvarovega99/webapp-api
+    ports:
+      - "5001:5001"
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - webapp-mongo
+    deploy:
+      replicas: 2
+    networks:
+      - test-devops-network
+
+  webapp-mongo:
+    image: mongo
+    ports:
+      - "7001:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    deploy:
+      replicas: 1
+    networks:
+      - test-devops-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  test-devops-network:
+    external: true

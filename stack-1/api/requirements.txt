@@ -1,0 +1,11 @@
+Flask==2.2.3 
+flask-cors
+flasgger
+pymongo
+python-dotenv
+pygelf
+Flask-JWT-Extended
+flask-mongoengine
+mongoengine
+python-dotenv
+Werkzeug==2.2.2
